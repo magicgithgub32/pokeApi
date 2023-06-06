@@ -8,9 +8,11 @@
 .buttonsContainer {
     display: flex;
     align-items: center; 
-    border-radius: 10px;
     gap: 1rem;
+  }
 
+  .buttonsContainer > button, input {
+	border-radius: var(--border-radius);
 
   }
   .searchButton {
@@ -35,6 +37,15 @@
 
 .pokemonImage {
 	height: 200px;
+	margin-top: 2rem;
+}
+
+.pokeName {
+	border: 1px solid black;
+	padding: 0 1rem;
+	background-color: var(--tertiary-color);
+	color: var(--primary-color);
+	border-radius: var(--border-radius);
 }
 
 
