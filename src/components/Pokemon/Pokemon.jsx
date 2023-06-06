@@ -41,7 +41,7 @@ const Pokemon = () => {
         ) : (
           <img
             className="pokemonImage"
-            src="../../../src/assets/main_Img.jpeg"
+            src="https://res.cloudinary.com/dxxkog06n/image/upload/v1686060119/main_Img_mfaorj.jpg"
             alt="Pokemon"
           />
         )}
