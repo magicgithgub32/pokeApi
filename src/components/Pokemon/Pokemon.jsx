@@ -14,6 +14,10 @@ const Pokemon = () => {
     setSearchInput("");
   };
 
+  const handleInputChange = (event) => {
+    setSearchInput(event.target.value.toLowerCase());
+  };
+
   return (
     <>
       <div className="main">
@@ -23,7 +27,7 @@ const Pokemon = () => {
             type="text"
             placeholder="Search your pokemon"
             value={searchInput}
-            onChange={(ev) => setSearchInput(ev.target.value)}
+            onChange={handleInputChange}
           />
           <button type="submit" className="searchButton" onClick={getPokemon}>
             Search
