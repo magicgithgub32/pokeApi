@@ -1,0 +1,21 @@
+.buttonsContainer {
+    display: flex;
+    align-items: center; 
+    gap: 1rem;
+  }
+
+  .buttonsContainer > button, input {
+	border-radius: var(--border-radius);
+	background-color: var(--tertiary-color);
+	color: var(--primary-color);
+
+  }
+  .searchButton {
+    width: 70px;
+    cursor: pointer;
+
+  }
+  
+  .searchInput::placeholder { 
+    text-indent: 11px;
+  }

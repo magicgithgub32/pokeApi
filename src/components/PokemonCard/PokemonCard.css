@@ -1,0 +1,16 @@
+.pokemonWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	margin: 3rem;
+	align-items: center;
+	justify-content: center;
+}
+
+.pokeName {
+	border: 1px solid black;
+	padding: 0 1rem;
+	background-color: var(--tertiary-color);
+	color: var(--primary-color);
+	border-radius: var(--border-radius);
+}

@@ -5,47 +5,7 @@
 	align-items: center;
 }
 
-.buttonsContainer {
-    display: flex;
-    align-items: center; 
-    gap: 1rem;
-  }
-
-  .buttonsContainer > button, input {
-	border-radius: var(--border-radius);
-
-  }
-  .searchButton {
-    width: 70px;
-    cursor: pointer;
-
-  }
-  
-  .searchInput::placeholder { 
-    text-indent: 11px;
-  }
 
 
-.pokemonWrapper {
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
-	margin: 3rem;
-	align-items: center;
-	justify-content: center;
-}
-
-.pokemonImage {
-	height: 200px;
-	margin-top: 2rem;
-}
-
-.pokeName {
-	border: 1px solid black;
-	padding: 0 1rem;
-	background-color: var(--tertiary-color);
-	color: var(--primary-color);
-	border-radius: var(--border-radius);
-}
 
 

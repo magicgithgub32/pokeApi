@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import "./Pokemon.css";
+import PokemonCard from "../PokemonCard/PokemonCard";
+import FirstImage from "../FirstImage/FirstImage";
+import Buttons from "../Buttons/Buttons";
 
 const Pokemon = () => {
   const [pokemon, setPokemon] = useState();
@@ -21,34 +24,12 @@ const Pokemon = () => {
   return (
     <>
       <div className="main">
-        <div className="buttonsContainer">
-          <input
-            className="searchInput"
-            type="text"
-            placeholder="Search your pokemon"
-            value={searchInput}
-            onChange={handleInputChange}
-          />
-          <button type="submit" className="searchButton" onClick={getPokemon}>
-            Search
-          </button>
-        </div>
-        {pokemon ? (
-          <div className="pokemonWrapper" key={pokemon.name}>
-            <img
-              className="pokemonImage"
-              src={pokemon.sprites.other.dream_world.front_default}
-              alt={pokemon.name}
-            />
-            <p className="pokeName">{pokemon.name.toUpperCase()}</p>
-          </div>
-        ) : (
-          <img
-            className="pokemonImage"
-            src="https://res.cloudinary.com/dxxkog06n/image/upload/v1686060119/main_Img_mfaorj.jpg"
-            alt="Pokemon"
-          />
-        )}
+        <Buttons
+          searchInput={searchInput}
+          handleInputChange={handleInputChange}
+          getPokemon={getPokemon}
+        />
+        {pokemon ? <PokemonCard pokemon={pokemon} /> : <FirstImage />}
       </div>
     </>
   );
