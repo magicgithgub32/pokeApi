@@ -3,23 +3,45 @@ import "./Pokemon.css";
 import PokemonCard from "../PokemonCard/PokemonCard";
 import FirstImage from "../FirstImage/FirstImage";
 import Buttons from "../Buttons/Buttons";
+import SadPokemon from "../SadPokemon/SadPokemon";
 
 const Pokemon = () => {
-  const [pokemon, setPokemon] = useState();
+  const [pokemon, setPokemon] = useState("start");
   const [searchInput, setSearchInput] = useState("");
+  const [pokemonFound, setPokemonFound] = useState(false);
+
+  const [pokemonValid, setPokemonValid] = useState(true);
+
+  // console.log("Pokemon", pokemon);
+  // console.log("SearchInput", searchInput);
+  // console.log("pokemonFound", pokemonFound);
 
   const getPokemon = async () => {
     const result = await fetch(
       `https://pokeapi.co/api/v2/pokemon/${searchInput}`
     );
-    const res = await result.json();
-    setPokemon(res);
-    setSearchInput("");
+    // const res = await result.json();
+    // setPokemon(res);
+    // setSearchInput("");
+
+    if (result.status === 200) {
+      const res = await result.json();
+      setPokemon(res);
+      setPokemonValid(true);
+    } else {
+      setPokemonValid(false);
+    }
   };
 
   const handleInputChange = (event) => {
     setSearchInput(event.target.value.toLowerCase());
+    setPokemonFound(true);
   };
+
+  console.log("Pokemon", pokemon);
+  console.log("SearchInput", searchInput);
+  console.log("pokemonFound", pokemonFound);
+  console.log("pokemonName", pokemon?.name);
 
   return (
     <>
@@ -29,7 +51,13 @@ const Pokemon = () => {
           handleInputChange={handleInputChange}
           getPokemon={getPokemon}
         />
-        {pokemon ? <PokemonCard pokemon={pokemon} /> : <FirstImage />}
+        {pokemon === "start" ? <FirstImage /> : ""}
+        {pokemon && pokemon?.sprites && pokemonFound && pokemon.name ? (
+          <PokemonCard pokemon={pokemon} />
+        ) : (
+          pokemon != "start" && !pokemonValid && <SadPokemon />
+        )}
+        {pokemon != "start" && !searchInput && <SadPokemon />}
       </div>
     </>
   );

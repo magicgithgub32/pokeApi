@@ -1,0 +1,14 @@
+.sadPikachuArea {
+    display: flex;
+    flex-direction: column;
+}
+
+.sadPikachuArea > p {
+    margin-top: 1.5rem;
+}
+
+.sadPikachu {
+	margin: 1.5rem;;
+	width: 250px;
+}
+

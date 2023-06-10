@@ -5,6 +5,12 @@
 	margin: 3rem;
 	align-items: center;
 	justify-content: center;
+	height: 200px;
+}
+
+.pokemonImage {
+	height: 100%;
+
 }
 
 .pokeName {
