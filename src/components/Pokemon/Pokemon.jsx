@@ -9,20 +9,12 @@ const Pokemon = () => {
   const [pokemon, setPokemon] = useState("start");
   const [searchInput, setSearchInput] = useState("");
   const [pokemonFound, setPokemonFound] = useState(false);
-
   const [pokemonValid, setPokemonValid] = useState(true);
-
-  // console.log("Pokemon", pokemon);
-  // console.log("SearchInput", searchInput);
-  // console.log("pokemonFound", pokemonFound);
 
   const getPokemon = async () => {
     const result = await fetch(
       `https://pokeapi.co/api/v2/pokemon/${searchInput}`
     );
-    // const res = await result.json();
-    // setPokemon(res);
-    // setSearchInput("");
 
     if (result.status === 200) {
       const res = await result.json();
@@ -30,18 +22,21 @@ const Pokemon = () => {
       setPokemonValid(true);
     } else {
       setPokemonValid(false);
+      setPokemon(null);
     }
   };
 
   const handleInputChange = (event) => {
     setSearchInput(event.target.value.toLowerCase());
     setPokemonFound(true);
+    event.preventDefault();
   };
 
   console.log("Pokemon", pokemon);
   console.log("SearchInput", searchInput);
   console.log("pokemonFound", pokemonFound);
   console.log("pokemonName", pokemon?.name);
+  console.log("pokemonValid", pokemonValid);
 
   return (
     <>
@@ -54,10 +49,11 @@ const Pokemon = () => {
         {pokemon === "start" ? <FirstImage /> : ""}
         {pokemon && pokemon?.sprites && pokemonFound && pokemon.name ? (
           <PokemonCard pokemon={pokemon} />
+        ) : pokemon != "start" && !pokemonValid ? (
+          <SadPokemon />
         ) : (
-          pokemon != "start" && !pokemonValid && <SadPokemon />
+          pokemon != "start" && !searchInput && <SadPokemon />
         )}
-        {pokemon != "start" && !searchInput && <SadPokemon />}
       </div>
     </>
   );
