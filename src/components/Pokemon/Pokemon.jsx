@@ -52,7 +52,7 @@ const Pokemon = () => {
         ) : pokemon != "start" && !pokemonValid ? (
           <SadPokemon />
         ) : (
-          <SadPokemon />
+          pokemon != "start" && <SadPokemon />
         )}
       </div>
     </>

@@ -1,5 +1,5 @@
 import React from "react";
-import "./sadPokemon.css";
+import "./SadPokemon.css";
 
 const SadPokemon = () => {
   return (
