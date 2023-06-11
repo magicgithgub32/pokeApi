@@ -10,6 +10,7 @@ const Pokemon = () => {
   const [searchInput, setSearchInput] = useState("");
   const [pokemonFound, setPokemonFound] = useState(false);
   const [pokemonValid, setPokemonValid] = useState(true);
+  const [pokeId, setPokeId] = useState("");
 
   const getPokemon = async () => {
     const result = await fetch(
@@ -20,6 +21,37 @@ const Pokemon = () => {
       const res = await result.json();
       setPokemon(res);
       setPokemonValid(true);
+      setPokeId(res.id);
+    } else {
+      setPokemonValid(false);
+      setPokemon(null);
+    }
+  };
+
+  const getPreviousPokemon = async () => {
+    const result = await fetch(
+      `https://pokeapi.co/api/v2/pokemon/${pokeId} - 1`
+    );
+    if (result.status === 200) {
+      const res = await result.json();
+      setPokemon(res);
+      setPokemonValid(true);
+      setPokeId(res.id);
+    } else {
+      setPokemonValid(false);
+      setPokemon(null);
+    }
+  };
+
+  const getNextPokemon = async () => {
+    const result = await fetch(
+      `https://pokeapi.co/api/v2/pokemon/${pokeId} + 1`
+    );
+    if (result.status === 200) {
+      const res = await result.json();
+      setPokemon(res);
+      setPokemonValid(true);
+      setPokeId(res.id);
     } else {
       setPokemonValid(false);
       setPokemon(null);
@@ -37,6 +69,7 @@ const Pokemon = () => {
   console.log("pokemonFound", pokemonFound);
   console.log("pokemonName", pokemon?.name);
   console.log("pokemonValid", pokemonValid);
+  console.log("pokeId", pokeId);
 
   return (
     <>

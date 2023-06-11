@@ -14,6 +14,15 @@ const Buttons = ({ searchInput, handleInputChange, getPokemon }) => {
       <button type="submit" className="searchButton" onClick={getPokemon}>
         Search
       </button>
+
+      {/* <div className="next_prev_buttons">
+        <button type="submit" onClick={getPreviousPokemon}>
+          Previous Pokemon
+        </button>
+        <button type="submit" onClick={getNextPokemon}>
+          Next Pokemon
+        </button>
+      </div> */}
     </div>
   );
 };
