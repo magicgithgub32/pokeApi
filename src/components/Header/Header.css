@@ -4,14 +4,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 4rem;
-    gap: 1rem;
+    margin: 5rem;
   
   }
   .title {
     width: 50%;
   }
-  
+
+
+  .header-wrapper {
+    @media screen and (max-width: 650px) {
+     margin: 2rem;
+    }
+  }
 
   
 

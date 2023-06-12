@@ -1,11 +1,17 @@
 .buttonsContainer {
     display: flex;
+    flex-direction: column;
     align-items: center; 
-    gap: 1rem;
-    margin-top: 1rem;
+    gap: .5rem;
+    margin-top: .5rem;
   }
 
-  .buttonsContainer > button, input {
+  .nameSearchButtonsContainer {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .nameSearchButtonsContainer > button, input {
 	border-radius: var(--border-radius);
 	background-color: var(--tertiary-color);
 	color: var(--primary-color);
@@ -19,4 +25,17 @@
   
   .searchInput::placeholder { 
     text-indent: 11px;
+  }
+
+  .next_prev_buttons {
+    gap: 1rem;
+    display: flex;
+  }
+
+  .nextButton, .prevButton {
+  border-radius: var(--border-radius);
+	background-color: var(--tertiary-color);
+	color: var(--primary-color);
+  gap: 1rem;
+  cursor: pointer;
   }

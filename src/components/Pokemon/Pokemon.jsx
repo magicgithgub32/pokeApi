@@ -30,7 +30,7 @@ const Pokemon = () => {
 
   const getPreviousPokemon = async () => {
     const result = await fetch(
-      `https://pokeapi.co/api/v2/pokemon/${pokeId} - 1`
+      `https://pokeapi.co/api/v2/pokemon/${pokeId - 1}`
     );
     if (result.status === 200) {
       const res = await result.json();
@@ -45,7 +45,7 @@ const Pokemon = () => {
 
   const getNextPokemon = async () => {
     const result = await fetch(
-      `https://pokeapi.co/api/v2/pokemon/${pokeId} + 1`
+      `https://pokeapi.co/api/v2/pokemon/${pokeId + 1}`
     );
     if (result.status === 200) {
       const res = await result.json();
@@ -78,6 +78,9 @@ const Pokemon = () => {
           searchInput={searchInput}
           handleInputChange={handleInputChange}
           getPokemon={getPokemon}
+          getPreviousPokemon={getPreviousPokemon}
+          getNextPokemon={getNextPokemon}
+          pokeId={pokeId}
         />
         {pokemon === "start" ? <FirstImage /> : ""}
         {pokemon && pokemon?.sprites && pokemonFound && pokemon.name ? (
