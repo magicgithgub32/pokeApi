@@ -37,6 +37,7 @@ const Pokemon = () => {
       setPokemon(res);
       setPokemonValid(true);
       setPokeId(res.id);
+      setSearchInput("");
     } else {
       setPokemonValid(false);
       setPokemon(null);
@@ -52,6 +53,7 @@ const Pokemon = () => {
       setPokemon(res);
       setPokemonValid(true);
       setPokeId(res.id);
+      setSearchInput("");
     } else {
       setPokemonValid(false);
       setPokemon(null);
