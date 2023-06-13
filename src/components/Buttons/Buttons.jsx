@@ -25,8 +25,8 @@ const Buttons = ({
         </button>
       </div>
 
-      {pokeId && (
-        <div className="next_prev_buttons">
+      <div className="next_prev_buttons">
+        {pokeId && pokeId > 1 && (
           <button
             type="submit"
             className="prevButton"
@@ -34,11 +34,14 @@ const Buttons = ({
           >
             Prev
           </button>
+        )}
+
+        {pokeId && pokeId < 1010 && (
           <button type="submit" className="nextButton" onClick={getNextPokemon}>
             Next
           </button>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
